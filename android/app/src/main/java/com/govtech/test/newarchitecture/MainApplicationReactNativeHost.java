@@ -1,4 +1,4 @@
-package com.rnboilerplate.newarchitecture;
+package com.govtech.test.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.rnboilerplate.BuildConfig;
-import com.rnboilerplate.newarchitecture.components.MainComponentsRegistry;
-import com.rnboilerplate.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.govtech.test.BuildConfig;
+import com.govtech.test.newarchitecture.components.MainComponentsRegistry;
+import com.govtech.test.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
