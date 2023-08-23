@@ -7,3 +7,10 @@ export interface IScreen {
   route?: any
   navigation?: any
 }
+
+export type Room = {
+  name: string
+  capacity: string
+  level: string
+  availability: { [key: string]: string }
+}

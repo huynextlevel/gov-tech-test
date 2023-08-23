@@ -1,10 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState, useCallback, ElementRef, useMemo } from 'react'
 import { View, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
 import { useSelector } from 'react-redux'
 import moment from 'moment-timezone'
 
 import { colors } from 'src/styles'
+import { Room } from 'src/globals/types'
 import { RootState } from 'src/store/reducers'
+import { roundToNearestHalfHour } from 'src/utils'
+
+import { SortActionSheet } from 'src/systems'
 
 import { BasicIcon } from 'src/components/basics/icons'
 import { Typography } from 'src/components/basics/typographies'
@@ -14,32 +18,68 @@ export interface RoomListProps {
 }
 
 const RoomList = ({ timeSlot }: RoomListProps) => {
+  const sortSheetRef = useRef<ElementRef<typeof SortActionSheet>>(null)
   const roomList = useSelector((state: RootState) => state.app.roomList)
-  const [rooms, setRooms] = useState<any[]>([])
+  const [rooms, setRooms] = useState<Room[]>([])
+  const [sortValue, setSortValue] = useState<string | undefined>()
+
+  const formatTimeSlot = useMemo(() => 
+    moment(roundToNearestHalfHour(new Date(timeSlot))).format('HH:mm'),
+  [timeSlot])
 
   useEffect(() => {
     if (roomList.length !== 0) {
-      const sortData = roomList.sort((a, b) => parseInt(b.level) - parseInt(a.level))
+      const sortData = roomList.sort((a, b) => parseInt(a.level) - parseInt(b.level))
       setRooms(sortData)
     }
   }, [roomList])
 
+  const show = useCallback(() => {
+    sortSheetRef.current?.show()
+  }, [sortSheetRef])
+
   const roomStatus = useCallback((availability: any) => {
-    const formatTime = moment(new Date(timeSlot)).format('HH:mm')
-    const availabilityTime = availability[formatTime]
+    const availabilityTime = availability[formatTimeSlot]
 
     if (availabilityTime === '1') {
       return {
         isAvailable: true,
-        lable: 'Available'
+        label: 'Available'
       }
     } else {
       return {
         isAvailable: false,
-        lable: 'Not Available'
+        label: 'Not Available'
       }
     }
-  }, [timeSlot])
+  }, [formatTimeSlot])
+
+  const onSort = useCallback((sortValue: any) => {
+    setSortValue(sortValue)
+    if (sortValue !== undefined) {
+      const tempData = [...rooms]
+
+      switch(sortValue) {
+        case 'capacity':
+          setRooms(tempData.sort((a, b) => parseInt(b.capacity) - parseInt(a.capacity)))
+          break
+        case 'availability':
+          const sortData = tempData.sort((a, b) => {
+            if (a.availability[formatTimeSlot] > b.availability[formatTimeSlot]) {
+              return -1
+            } else if (a.availability[formatTimeSlot] < b.availability[formatTimeSlot]) {
+              return 1
+            } else {
+              return a.name.localeCompare(b.name)
+            }
+          })
+          setRooms(sortData)
+          break
+        default:
+          break
+      }
+    }
+  }, [rooms, formatTimeSlot])
 
   const renderItem = ({ item }: { item: any }) => {
     return (
@@ -55,7 +95,7 @@ const RoomList = ({ timeSlot }: RoomListProps) => {
             style={{ fontStyle: 'italic' }}
             color={roomStatus(item.availability).isAvailable ? 'green1' : 'gray1'}
           >
-            {roomStatus(item.availability).lable}
+            {roomStatus(item.availability).label}
           </Typography>
         </View>
         <View style={[styles.row, { justifyContent: 'space-between' }]}>
@@ -72,18 +112,21 @@ const RoomList = ({ timeSlot }: RoomListProps) => {
 
   return (
     <View style={{ flex: 1 }}>
+      <SortActionSheet
+        ref={sortSheetRef}
+        value={sortValue}
+        onChange={onSort}
+      />
       <View style={[styles.row, { marginBottom: 8, justifyContent: 'space-between' }]}>
         <Typography size={12} color="gray4" weight="regular">
           Rooms
         </Typography>
-        <View style={styles.row}>
+        <TouchableOpacity style={styles.row} onPress={show}>
           <Typography size={12} color="gray3" weight="bold" style={{ marginRight: 4 }}>
             Sort
           </Typography>
-          <TouchableOpacity>
-            <BasicIcon size={20} name="ic_sort" color="black" />
-          </TouchableOpacity>
-        </View>
+          <BasicIcon size={20} name="ic_sort" color="black" />
+        </TouchableOpacity>
       </View>
       <FlatList
         data={rooms}

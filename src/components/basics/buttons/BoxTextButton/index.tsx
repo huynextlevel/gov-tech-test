@@ -20,10 +20,10 @@ const BoxTextButton = ({
   size,
   style,
   isDisabled,
-  buttonRadius = 2,
+  buttonRadius = 100,
   isFullWidth = true,
   label,
-  textSize = 18,
+  textSize = 17,
   textColor = 'white',
   textWeight = 'bold',
   onPress

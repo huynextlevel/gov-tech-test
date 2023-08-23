@@ -1,7 +1,8 @@
+import { Room } from 'src/globals/types'
 import { getRoomList, resetAppState } from 'src/store/actions/app'
 
 export interface AppState {
-  roomList: any[]
+  roomList: Room[]
 }
 
 export type AppActions =

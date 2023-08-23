@@ -1,15 +1,24 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native'
+
+import { useScreenEventListener } from 'src/hooks'
 
 import { IScreen } from 'src/globals/types'
 import { useGetRoomList } from 'src/services'
 
 const SplashScreen: React.FC<IScreen> = ({ navigation }) => {
   const { fetchRoomList } = useGetRoomList()
-  useEffect(() => navigation.addListener('focus', () => {
+
+  const onDidFocus = () => {
     fetchRoomList()
     setTimeout(() => navigation.navigate('Main'), 1000)
-  }), [navigation])
+  }
+
+  useScreenEventListener({
+    navigation,
+    listenerType: 'focus',
+    callback: onDidFocus
+  })
 
   return (
     <View style={styles.container}>
