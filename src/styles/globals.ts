@@ -27,6 +27,19 @@ const globalStyles = StyleSheet.create({
     marginTop: 5,
     fontWeight: '600',
   },
+  headerStyle: {
+    elevation: 0,
+    shadowOpacity: 0,
+    backgroundColor: colors.white
+  },
+  headerTitle: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: colors.black
+  },
+  headerRightContainer: {
+    paddingRight: 23
+  }
 })
 
 export default globalStyles

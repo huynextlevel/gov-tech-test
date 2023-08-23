@@ -2,7 +2,7 @@ import 'react-native-gesture-handler'
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
-import HomeStack from './HomeStack'
+import HomeStack from './BookingStack'
 import SplashScreen from 'src/screens/Splash'
 
 const Stack = createStackNavigator()

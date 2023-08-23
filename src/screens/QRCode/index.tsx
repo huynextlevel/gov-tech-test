@@ -5,14 +5,13 @@ import Welcome from '../Welcome'
 import { globalStyles } from 'src/styles'
 import { IScreen } from 'src/globals/types'
 
-const HomeScreen: React.FC<IScreen> = ({ navigation }) => {
+const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
   const handleGoBack = () => {
     navigation.goBack()
   };
 
   return (
     <View style={styles.container}>
-      <Welcome navigation={navigation} />
       <TouchableOpacity onPress={handleGoBack}>
         <Text style={globalStyles.goBackText}>Go Back</Text>
       </TouchableOpacity>
@@ -28,4 +27,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default HomeScreen
+export default QRCodeScreen

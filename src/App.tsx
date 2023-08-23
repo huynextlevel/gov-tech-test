@@ -6,10 +6,12 @@ import AppView from './routers/AppViewContainer'
 
 LogBox.ignoreAllLogs()
 
-const App = () => (
-  <NavigationContainer>
-    <AppView />
-  </NavigationContainer>
-)
+const App = () => {
+  return (
+    <NavigationContainer>
+      <AppView />
+    </NavigationContainer>
+  )
+}
 
 export default App
