@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 interface IProps {
   style?: object
-  children?: React.ReactNode
+  children?: any
 }
 
 const Layout = ({ children, style }: IProps) => (
