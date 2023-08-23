@@ -1,20 +1,12 @@
 import React from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
-import { useDispatch } from 'react-redux'
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 
-import styles from './styles'
 import Welcome from '../Welcome'
-import {
-  IProps
-} from './types'
-import * as appActions from 'src/store/action/app'
 import { globalStyles } from 'src/styles'
+import { IScreen } from 'src/globals/types'
 
-const HomeScreen: React.FC<IProps> = ({ navigation }) => {
-  const dispatch = useDispatch()
-
+const HomeScreen: React.FC<IScreen> = ({ navigation }) => {
   const handleGoBack = () => {
-    dispatch(appActions.saveLoginData(null))
     navigation.goBack()
   };
 
@@ -27,5 +19,13 @@ const HomeScreen: React.FC<IProps> = ({ navigation }) => {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
 
 export default HomeScreen

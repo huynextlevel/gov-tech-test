@@ -4,16 +4,7 @@ import {
   Text,
   StyleSheet,
   Platform,
-  TouchableOpacity,
 } from 'react-native'
-import {
-  useSelector,
-  useDispatch,
-  RootStateOrAny
-} from 'react-redux'
-
-import * as appActions from '../store/action/app'
-import { globalStyles } from '../styles/index'
 
 interface IProps {
   navigation: any
@@ -27,8 +18,6 @@ const instructions = Platform.select({
 })
 
 const Welcome = ({ navigation }: IProps) => {
-  const dispatch = useDispatch()
-  const counter = useSelector((state: RootStateOrAny) => state.app.counter)
 
   return (
     <View style={styles.container}>
@@ -37,13 +26,6 @@ const Welcome = ({ navigation }: IProps) => {
         To get started, edit src/welcome.js
       </Text>
       <Text style={styles.instructions}>{instructions}</Text>
-      <TouchableOpacity
-        style={[globalStyles.buttonContainer, { maxWidth: 200 }]}
-        onPress={() => dispatch(appActions.increaseCounter())}>
-        <Text style={globalStyles.buttonTextContainer}>
-          Increase counter [{counter}]
-        </Text>
-      </TouchableOpacity>
     </View>
   )
 }

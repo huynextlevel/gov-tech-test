@@ -1,18 +1,12 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native'
 
-import {
-  IProps
-} from './types'
+import { IScreen } from 'src/globals/types'
 
-const SplashScreen: React.FC<IProps> = ({ navigation }) => {
-  useEffect(
-    () =>
-      navigation.addListener('focus', () => {
-        setTimeout(() => navigation.navigate('Login'), 3000)
-      }),
-    [navigation],
-  )
+const SplashScreen: React.FC<IScreen> = ({ navigation }) => {
+  useEffect(() => navigation.addListener('focus', () => {
+    setTimeout(() => navigation.navigate('Main'), 1000)
+  }), [navigation])
 
   return (
     <View style={styles.container}>

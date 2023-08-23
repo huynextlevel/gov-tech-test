@@ -12,12 +12,10 @@ export default function HomeStackScreen() {
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
-        options={navigation => ({
-          headerLeft: false,
+        options={{
           headerShown: false,
-          gestureEnabled: true,
-          headerTitle: false,
-        })}
+          gestureEnabled: true
+        }}
       />
     </HomeStack.Navigator>
   )
