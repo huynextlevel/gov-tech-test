@@ -6,6 +6,7 @@ import { globalStyles } from 'src/styles'
 import { QRScanHeader } from 'src/components/headers'
 
 import QRCodeScreen from 'src/screens/QRCode'
+import ResultScreen from 'src/screens/Result'
 import BookingScreen from 'src/screens/Booking'
 
 const BookingStack = createStackNavigator()
@@ -38,6 +39,14 @@ function HomeStackScreen() {
         component={QRCodeScreen}
         options={{
           headerShown: false
+        }}
+      />
+      <BookingStack.Screen
+        name="ResultScreen"
+        component={ResultScreen}
+        options={{
+          headerShown: false,
+          headerTitle: 'Book a Room'
         }}
       />
     </BookingStack.Navigator>

@@ -2,44 +2,47 @@ import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
 import DatePicker from 'react-native-date-picker'
 
-import { IProps } from './types'
 import { colors } from 'src/styles'
+import { DateTimePickerProps } from './types'
 
 import { Typography } from 'src/components/basics/typographies'
 
 const DateTimePicker = ({
-  minuteInterval,
-  onClose,
-  onDateChange,
   date,
   mode,
   minimumDate,
   maximumDate,
-  isShowConfirmTitle
-}: IProps) => {
+  minuteInterval,
+  isShowConfirmTitle,
+  isShowConfirmHeader = true,
+  onClose,
+  onDateChange,
+}: DateTimePickerProps) => {
   return (
     <View style={{ width: '100%' }}>
-      <View
-        style={{
-          paddingRight: 20,
-          paddingVertical: 12.5,
-          alignItems: 'flex-end',
-          justifyContent: 'flex-end',
-          backgroundColor: colors.gray5,
-          height: !isShowConfirmTitle ? 40 : 0
-        }}
-      >
-        {isShowConfirmTitle && (
-          <TouchableOpacity
-            onPress={onClose}
-            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-          >
-            <Typography size={15} color="black" weight="medium">
-              Confirm
-            </Typography>
-          </TouchableOpacity>
-        )}
-      </View>
+      {isShowConfirmHeader && (
+        <View
+          style={{
+            paddingRight: 20,
+            paddingVertical: 12.5,
+            alignItems: 'flex-end',
+            justifyContent: 'flex-end',
+            backgroundColor: colors.gray5,
+            height: !isShowConfirmTitle ? 40 : 0
+          }}
+        >
+          {isShowConfirmTitle && (
+            <TouchableOpacity
+              onPress={onClose}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
+              <Typography size={15} color="black" weight="medium">
+                Confirm
+              </Typography>
+            </TouchableOpacity>
+          )}
+        </View>
+      )}
       <View
         style={{
           alignItems: 'center',
@@ -52,6 +55,9 @@ const DateTimePicker = ({
           date={date}
           androidVariant="iosClone"
           onDateChange={onDateChange}
+          minuteInterval={minuteInterval}
+          minimumDate={minimumDate}
+          maximumDate={maximumDate}
           textColor={colors.gray3}
         />
       </View>
@@ -59,10 +65,9 @@ const DateTimePicker = ({
   )
 }
 
-function shouldMemo(prevProps: IProps, nextProps: IProps) {
+function shouldMemo(prevProps: DateTimePickerProps, nextProps: DateTimePickerProps) {
   return (
-    prevProps.date === nextProps.date &&
-    prevProps.isVisible === nextProps.isVisible
+    prevProps.date === nextProps.date
   )
 }
 

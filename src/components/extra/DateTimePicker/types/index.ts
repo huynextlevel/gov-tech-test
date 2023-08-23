@@ -1,8 +1,8 @@
 import { DatePickerProps } from 'react-native-date-picker'
 
-export interface IProps extends DatePickerProps {
-  isVisible: boolean
-  onClose: () => void
+export interface DateTimePickerProps extends DatePickerProps {
+  onClose?: () => void
   noBackdropPress?: boolean
   isShowConfirmTitle?: boolean
+  isShowConfirmHeader?: boolean
 }

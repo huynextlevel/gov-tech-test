@@ -4,7 +4,7 @@ import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { globalStyles } from 'src/styles'
 import { IScreen } from 'src/globals/types'
 
-const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
+const ResultScreen: React.FC<IScreen> = ({ navigation }) => {
   const handleGoBack = () => {
     navigation.goBack()
   };
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default QRCodeScreen
+export default ResultScreen

@@ -1,42 +1,31 @@
 import React, { useState } from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
-import Welcome from '../Welcome'
+import { colors } from 'src/styles'
 import { IScreen } from 'src/globals/types'
-import { colors, globalStyles } from 'src/styles'
 
-import { DateTimePicker } from 'src/components/extra'
+import { RoomList, DateTimeSelect } from 'src/systems'
 
 const BookingScreen: React.FC<IScreen> = ({ navigation }) => {
-  const [birthday, setBirthday] = useState<Date>(new Date(Date.now()))
-  const [isBirthdayPickerVisible, setIsBirthdayPickerVisible] =
-    useState<boolean>(false)
-
-  const handleGoBack = () => {
-    navigation.goBack()
-  }
-
-  const onChangeBirthday = (date: Date) => {
-    setBirthday(date)
-  }
-
-  const onCloseDatePicker = () => {
-    setIsBirthdayPickerVisible(false)
-  }
+  const [bookingDate, setBookingDate] = useState<any>(new Date(Date.now()))
+  const [timeSlot, setTimeSlot] = useState<any>(new Date(Date.now()))
 
   return (
     <View style={styles.container}>
-      <Welcome navigation={navigation} />
-      <TouchableOpacity onPress={handleGoBack}>
-        <Text style={globalStyles.goBackText}>Go Back</Text>
-      </TouchableOpacity>
-        <DateTimePicker
-          mode="date"
-          date={new Date(birthday)}
-          onDateChange={onChangeBirthday}
-          isVisible={isBirthdayPickerVisible}
-          onClose={onCloseDatePicker}
-        />
+      <DateTimeSelect
+        title="Date"
+        date={bookingDate}
+        setBookingDate={setBookingDate}
+        style={{ marginBottom: 27 }}
+      />
+      <DateTimeSelect
+        title="Timeslot"
+        date={timeSlot}
+        mode="time"
+        setBookingDate={setTimeSlot}
+        style={{ marginBottom: 36 }}
+      />
+      <RoomList timeSlot={timeSlot}/>
     </View>
   )
 }
