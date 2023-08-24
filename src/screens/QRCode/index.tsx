@@ -19,7 +19,7 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
   }, [qrScanRef])
 
   const onDidFocus = () => {
-    reActivateScanner() 
+    reActivateScanner()
   }
 
   useScreenEventListener({
@@ -65,10 +65,10 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topControlContainer}>
-        <TouchableOpacity style={{ marginRight: 20 }} onPress={onChooseFromLibrary}>
+        <TouchableOpacity testID="chooseFromLibraryButton" style={{ marginRight: 20 }} onPress={onChooseFromLibrary}>
           <Icon name="collections" size={30} color="#FFF"/>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
+        <TouchableOpacity accessibilityLabel="cancelButton" onPress={() => navigation.goBack()}>
           <Icon name="close" size={35} color="#FFF"/>
         </TouchableOpacity>
       </View>

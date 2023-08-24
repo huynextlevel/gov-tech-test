@@ -21,6 +21,7 @@ const ResultScreen: React.FC<IScreen> = ({ route, navigation }) => {
     <MainLayout edges={['bottom']} style={{ backgroundColor: colors.white }}>
       <Webview
         url={url}
+        testID="webview"
         onLoadEnd={() => {
           setIsLoadingEnd(true)
         }}
