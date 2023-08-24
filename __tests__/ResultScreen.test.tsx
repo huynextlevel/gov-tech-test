@@ -7,9 +7,13 @@ import { RootStackParamList } from 'src/globals/types'
 
 jest.mock('src/components/extra/Webview', () => 'Webview')
 
-describe('<ResultScreen />', () => {
+describe('Result unit test', () => {
   let routeMock: any
   let navigationMock: StackNavigationProp<RootStackParamList>
+
+  beforeAll(() => {
+    jest.clearAllMocks()
+  })
 
   beforeEach(() => {
     routeMock = {
@@ -22,6 +26,10 @@ describe('<ResultScreen />', () => {
     navigationMock = {
       navigate: jest.fn()
     } as any
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
   })
 
   it('renders Webview with the correct URL', () => {

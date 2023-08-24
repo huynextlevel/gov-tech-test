@@ -61,10 +61,11 @@ const RoomList = ({ timeSlot }: RoomListProps) => {
 
       switch(sortValue) {
         case 'capacity':
-          setRooms(tempData.sort((a, b) => parseInt(b.capacity) - parseInt(a.capacity)))
+          const capacityData = tempData.sort((a, b) => parseInt(b.capacity) - parseInt(a.capacity))
+          setRooms(capacityData)
           break
         case 'availability':
-          const sortData = tempData.sort((a, b) => {
+          const availabilityData = tempData.sort((a, b) => {
             if (a.availability[formatTimeSlot] > b.availability[formatTimeSlot]) {
               return -1
             } else if (a.availability[formatTimeSlot] < b.availability[formatTimeSlot]) {
@@ -73,7 +74,11 @@ const RoomList = ({ timeSlot }: RoomListProps) => {
               return a.name.localeCompare(b.name)
             }
           })
-          setRooms(sortData)
+          setRooms(availabilityData)
+          break
+        case 'location':
+          const locationData = roomList.sort((a, b) => parseInt(a.level) - parseInt(b.level))
+          setRooms(locationData)
           break
         default:
           break

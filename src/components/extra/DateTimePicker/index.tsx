@@ -65,10 +65,4 @@ const DateTimePicker = ({
   )
 }
 
-function shouldMemo(prevProps: DateTimePickerProps, nextProps: DateTimePickerProps) {
-  return (
-    prevProps.date === nextProps.date
-  )
-}
-
-export default React.memo(DateTimePicker, shouldMemo)
+export default React.memo(DateTimePicker)

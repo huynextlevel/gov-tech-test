@@ -6,7 +6,15 @@ jest.mock('src/assets/svgs/basics', () => ({
   ic_camera: 'ic_camera'
 }))
 
-describe('Testing BasicIcon components', () => {
+describe('BasicIcon component unit test', () => {
+  beforeAll(() => {
+    jest.clearAllMocks()
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
+
   it('renders the icon with given name', () => {
     const { UNSAFE_getByProps } = render(<BasicIcon name="ic_camera" />)
     expect(UNSAFE_getByProps({ name: 'ic_camera' })).toBeOnTheScreen

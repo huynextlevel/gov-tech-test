@@ -2,7 +2,6 @@ import React from 'react'
 import { render, fireEvent, waitFor } from '@testing-library/react-native'
 import QRCodeScreen from 'src/screens/QRCode'
 
-
 jest.mock('rn-qr-generator', () => ({
   detect: jest.fn(),
 }))
@@ -12,7 +11,7 @@ jest.mock('react-native-image-picker', () => ({
 jest.mock('react-native-qrcode-scanner', () => 'QRCodeScanner')
 jest.mock('react-native-vector-icons/MaterialIcons', () => 'Icon')
 
-describe('<QRCodeScreen />', () => {
+describe('QR Code Screen unit test', () => {
   let navigationMock: any
 
   beforeAll(() => {
@@ -25,6 +24,10 @@ describe('<QRCodeScreen />', () => {
       goBack: jest.fn(),
       navigate: jest.fn()
     }
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
   })
 
   it('navigates back on pressing the close button', async () => {

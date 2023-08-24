@@ -6,8 +6,8 @@ import { colors } from 'src/styles'
 import { RoomList, DateTimeSelect } from 'src/systems'
 
 const BookingScreen = () => {
-  const [bookingDate, setBookingDate] = useState<any>(new Date(Date.now()))
   const [timeSlot, setTimeSlot] = useState<any>(new Date(Date.now()))
+  const [bookingDate, setBookingDate] = useState<any>(new Date(Date.now()))
 
   return (
     <View style={styles.container}>
@@ -18,9 +18,9 @@ const BookingScreen = () => {
         style={{ marginBottom: 27 }}
       />
       <DateTimeSelect
+        mode="time"
         title="Timeslot"
         date={timeSlot}
-        mode="time"
         setBookingDate={setTimeSlot}
         style={{ marginBottom: 36 }}
       />

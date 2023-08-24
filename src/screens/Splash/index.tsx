@@ -24,7 +24,7 @@ const SplashScreen: React.FC<IScreen> = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={{ marginBottom: 10 }}>SplashScreen</Text>
+      <Text style={{ marginBottom: 10 }}>Book a Room</Text>
       <ActivityIndicator color="#000" />
     </View>
   )
