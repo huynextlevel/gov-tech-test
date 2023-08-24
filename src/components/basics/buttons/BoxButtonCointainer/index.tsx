@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, TouchableOpacity, ViewStyle } from 'react-native'
+import { StyleSheet, TouchableOpacity, ViewStyle, TouchableOpacityProps } from 'react-native'
 
 import { colors } from 'src/styles'
 
-export interface BoxButtonContainerProps {
+export interface BoxButtonContainerProps extends TouchableOpacityProps {
   type: 'pri' | 'sec'
   size: 'large'
   style?: ViewStyle
@@ -26,12 +26,14 @@ const BoxButtonContainer = ({
   activeOpacity = 0.5,
   isFullWidth = true,
   enableActiveOpacity = true,
-  onPress
+  onPress,
+  ...rest
 }: BoxButtonContainerProps) => {
   return (
     <TouchableOpacity
       onPress={onPress}
       disabled={isDisabled}
+      accessibilityLabel="boxButton"
       activeOpacity={enableActiveOpacity ? activeOpacity : 1}
       style={{
         ...buttonStyles[type]({
@@ -43,6 +45,7 @@ const BoxButtonContainer = ({
         }).root,
         ...style
       }}
+      {...rest}
     >
       {children}
     </TouchableOpacity>

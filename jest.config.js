@@ -6,7 +6,7 @@ module.exports = {
     "__DEV__": true,
     "__RCTProfileIsProfiling": false
   },
-  // setupFilesAfterEnv: ['./jest.setup.js'],
+  setupFilesAfterEnv: ['./jest.setup.js'],
   // This is needed to mock the react-native-gesture-handler
   setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js'],
   clearMocks: true,

@@ -73,6 +73,7 @@ const BasicModal: ForwardRefRenderFunction<BasicModalHandle, BasicModalProps> = 
       {...rest}
       isVisible={isVisible}
       useNativeDriver={true}
+      accessibilityLabel="basicModal"
       deviceHeight={Dimension.vertical}
       hideModalContentWhileAnimating={true}
       style={[styles[getModalStyle.container], containerStyle]}

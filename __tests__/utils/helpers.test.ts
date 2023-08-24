@@ -10,6 +10,7 @@ describe('Helpers functions unit test', () => {
       expect(numberWithCommas('1234')).toBe('1,234')
       expect(numberWithCommas(1000000)).toBe('1,000,000')
       expect(numberWithCommas(12)).toBe('12')
+      expect(numberWithCommas('0000001234')).not.toBe('1,234')
     })
 
     it('should handle negative numbers', () => {

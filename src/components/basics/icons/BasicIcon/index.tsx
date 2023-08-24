@@ -31,6 +31,7 @@ const BasicIcon = ({
   return (
     <Svg
       {...props}
+      accessibilityLabel="basicIcon"
       width={width ? width : size}
       height={height ? height : size}
       style={style}

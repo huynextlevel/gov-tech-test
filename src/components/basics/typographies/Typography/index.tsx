@@ -41,6 +41,7 @@ const Typography = ({
         },
         style
       )}
+      accessibilityLabel="typography"
     >
       {children}
     </Text>

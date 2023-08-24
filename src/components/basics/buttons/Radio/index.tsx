@@ -10,7 +10,6 @@ export interface RadioButtonProps {
   onChange: (newValue: any) => void
 }
 
-
 const RadioButton: React.FC<RadioButtonProps> = ({
   value,
   selectedValue,
@@ -22,12 +21,21 @@ const RadioButton: React.FC<RadioButtonProps> = ({
 
   return (
     <TouchableOpacity
+      accessibilityLabel="radioButton"
       style={styles.container}
       onPress={() => onChange(value)}
       activeOpacity={0.8}
     >
-      <View style={[styles.outerCircle, { borderColor: colors[selectedColor] }]}>
-        {isSelected ? <View style={[styles.innerCircle, { backgroundColor: colors[selectedColor] }]} /> : null}
+      <View
+        accessibilityLabel="outerCircle"
+        style={[styles.outerCircle, { borderColor: colors[selectedColor] }]}
+      >
+        {isSelected ? (
+          <View
+            accessibilityLabel="innerCircle"
+            style={[styles.innerCircle, { backgroundColor: colors[selectedColor] }]}
+          />
+        ) : null}
       </View>
     </TouchableOpacity>
   )

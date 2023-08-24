@@ -1,5 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react-native'
+
+import { colors } from 'src/styles'
 import { BasicIcon } from 'src/components/basics/icons'
 
 jest.mock('src/assets/svgs/basics', () => ({
@@ -16,22 +18,23 @@ describe('BasicIcon component unit test', () => {
   })
 
   it('renders the icon with given name', () => {
-    const { UNSAFE_getByProps } = render(<BasicIcon name="ic_camera" />)
-    expect(UNSAFE_getByProps({ name: 'ic_camera' })).toBeOnTheScreen
+    const { getByLabelText } = render(<BasicIcon name="ic_camera" />)
+    expect(getByLabelText('basicIcon')).toBeOnTheScreen
   })
 
   it('applies custom size', () => {
     const size = 40
-    const { UNSAFE_getByProps } = render(<BasicIcon name="ic_camera" size={size} />)
-    const icon = UNSAFE_getByProps({ name: 'ic_camera' })
+    const { getByLabelText } = render(<BasicIcon name="ic_camera" size={size} />)
+    const icon = getByLabelText('basicIcon')
 
     expect(icon).toBeOnTheScreen
-    expect(icon.props.size).toEqual(size)
+    expect(icon.props.width).toEqual(size)
+    expect(icon.props.height).toEqual(size)
   })
 
   it('applies custom width and height over size', () => {
-    const { UNSAFE_getByProps } = render(<BasicIcon name="ic_camera" width={50} height={60} size={40} />)
-    const icon = UNSAFE_getByProps({ name: 'ic_camera' })
+    const { getByLabelText } = render(<BasicIcon name="ic_camera" width={50} height={60} size={40} />)
+    const icon = getByLabelText('basicIcon')
 
     expect(icon).toBeOnTheScreen
     expect(icon.props.width).toEqual(50)
@@ -39,10 +42,10 @@ describe('BasicIcon component unit test', () => {
   })
 
   it('applies fill color correctly', () => {
-    const { UNSAFE_getByProps } = render(<BasicIcon name="ic_camera" color="gray1" />);
-    const icon = UNSAFE_getByProps({ name: 'ic_camera' })
+    const { getByLabelText } = render(<BasicIcon name="ic_camera" color="gray1" />);
+    const icon = getByLabelText('basicIcon')
 
     expect(icon).toBeOnTheScreen
-    expect(icon.props.color).toEqual('gray1')
+    expect(icon.props.fill).toEqual(colors['gray1'])
   })
 })

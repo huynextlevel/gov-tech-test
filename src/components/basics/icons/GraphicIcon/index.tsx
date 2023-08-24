@@ -25,6 +25,7 @@ const GraphicIcon = ({
   return (
     <Svg
       {...props}
+      accessibilityLabel="graphicIcon"
       width={width ? width : size}
       height={height ? height : size}
       style={style}
