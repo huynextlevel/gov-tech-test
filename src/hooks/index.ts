@@ -1,7 +1,7 @@
-import useKeyboard from './useKeyboard'
+import useInit from './useInit'
 import useScreenEventListener from './useScreenEventListener'
 
 export {
-  useKeyboard,
+  useInit,
   useScreenEventListener
 }

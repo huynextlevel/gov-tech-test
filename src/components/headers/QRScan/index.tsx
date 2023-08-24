@@ -10,7 +10,7 @@ const QRScan = () => {
   const { navigate } = useNavigation<StackNavigationProp<RootStackParamList>>()
 
   const onNavigate = () => {
-    navigate("QRCodeScreen")
+    navigate("ResultScreen", { url: 'https://qrgo.page.link/N3vzh' })
   }
 
   return (

@@ -1,6 +1,11 @@
+export type ResultParam = {
+  url: string
+}
+
 export type RootStackParamList = {
   BookScreen: undefined
   QRCodeScreen: undefined
+  ResultScreen: ResultParam
 }
 
 export interface IScreen {

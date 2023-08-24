@@ -1,15 +1,17 @@
 import React from 'react'
 import { StyleSheet, View, Text, ActivityIndicator } from 'react-native'
 
-import { useScreenEventListener } from 'src/hooks'
+import { useInit, useScreenEventListener } from 'src/hooks'
 
 import { IScreen } from 'src/globals/types'
 import { useGetRoomList } from 'src/services'
 
 const SplashScreen: React.FC<IScreen> = ({ navigation }) => {
+  const { init } = useInit()
   const { fetchRoomList } = useGetRoomList()
 
-  const onDidFocus = () => {
+  const onDidFocus = async () => {
+    await init()
     fetchRoomList()
     setTimeout(() => navigation.navigate('Main'), 1000)
   }

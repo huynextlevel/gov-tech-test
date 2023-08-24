@@ -1,9 +1,18 @@
-import React, { useRef, ElementRef, useCallback, forwardRef, useImperativeHandle, ForwardRefRenderFunction } from 'react'
+import React, {
+  useRef,
+  ElementRef,
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  ForwardRefRenderFunction
+} from 'react'
+import { View, TouchableOpacity } from 'react-native'
 
 import { DateTimePicker } from 'src/components/extra'
-import { DateTimePickerProps } from 'src/components/extra/DateTimePicker/types'
-
+import { BasicIcon } from 'src/components/basics/icons'
 import { BasicModal } from 'src/components/basics/modals'
+
+import { DateTimePickerProps } from 'src/components/extra/DateTimePicker/types'
 
 export type DateTimeModalHandle = {
   show: () => void
@@ -34,6 +43,11 @@ const DateTimeModal: ForwardRefRenderFunction<DateTimeModalHandle, DateTimeModal
 
   return (
     <BasicModal ref={modalRef} type="bottom" onBackdropPress={close}>
+      <View style={{ alignSelf: 'flex-end', paddingHorizontal: 24 }}>
+        <TouchableOpacity onPress={close}>
+          <BasicIcon size={16} name="ic_close_line_bold" color="gray4" />
+        </TouchableOpacity>
+      </View>
       <DateTimePicker
         mode={mode}
         date={date}

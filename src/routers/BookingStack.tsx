@@ -11,7 +11,7 @@ import BookingScreen from 'src/screens/Booking'
 
 const BookingStack = createStackNavigator()
 
-function HomeStackScreen() {
+function BookingStackScreen() {
   return (
     <BookingStack.Navigator
       initialRouteName="BookingScreen"
@@ -45,7 +45,6 @@ function HomeStackScreen() {
         name="ResultScreen"
         component={ResultScreen}
         options={{
-          headerShown: false,
           headerTitle: 'Book a Room'
         }}
       />
@@ -53,4 +52,4 @@ function HomeStackScreen() {
   )
 }
 
-export default HomeStackScreen
+export default BookingStackScreen

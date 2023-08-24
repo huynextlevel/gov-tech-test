@@ -6,7 +6,7 @@ export type Edges = 'top' | 'left' | 'right' | 'bottom'
 
 interface ILayoutProps {
   style?: ViewStyle
-  children: JSX.Element | JSX.Element[]
+  children: any
   edges?: Edges[] | undefined
 }
 

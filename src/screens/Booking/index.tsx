@@ -2,11 +2,10 @@ import React, { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 
 import { colors } from 'src/styles'
-import { IScreen } from 'src/globals/types'
 
 import { RoomList, DateTimeSelect } from 'src/systems'
 
-const BookingScreen: React.FC<IScreen> = ({ navigation }) => {
+const BookingScreen = () => {
   const [bookingDate, setBookingDate] = useState<any>(new Date(Date.now()))
   const [timeSlot, setTimeSlot] = useState<any>(new Date(Date.now()))
 
@@ -36,7 +35,7 @@ const styles = StyleSheet.create({
     paddingTop: 17,
     paddingHorizontal: 24,
     backgroundColor: colors.white
-  },
+  }
 })
 
 export default BookingScreen
