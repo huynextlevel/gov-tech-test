@@ -1,5 +1,5 @@
 import React from 'react'
-import { LogBox } from 'react-native'
+import { LogBox, StatusBar } from 'react-native'
 import { Provider } from 'react-redux'
 import { NavigationContainer } from '@react-navigation/native'
 
@@ -12,6 +12,7 @@ const App = () => {
   return (
     <Provider store={appStore}>
       <NavigationContainer>
+        <StatusBar barStyle="dark-content"/>
         <AppView />
       </NavigationContainer>
     </Provider>

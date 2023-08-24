@@ -1,0 +1,25 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/svgs/basics/ic_camera.svg",
+      "sha1": "826ac929b96707baed0b976a3b6e4b20df2d8e04"
+    },
+    {
+      "path": "src/assets/svgs/basics/ic_close_line_bold.svg",
+      "sha1": "dbad409b2cac14f0effd077e729814df37fc8513"
+    },
+    {
+      "path": "src/assets/svgs/basics/ic_sort.svg",
+      "sha1": "31530d23f0a61057eddf01b1fdc14c696292f0b1"
+    },
+    {
+      "path": "src/assets/svgs/basics/index.ts",
+      "sha1": "691b1e197483b86f5286a19ebddc0b7a544c76b5"
+    },
+    {
+      "path": "src/assets/svgs/graphics/graphic_success_check.svg",
+      "sha1": "e786b480648400849a099ad7d2607c3cff9ff6f0"
+    }
+  ]
+}

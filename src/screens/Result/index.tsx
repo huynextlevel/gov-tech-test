@@ -14,7 +14,7 @@ const ResultScreen: React.FC<IScreen> = ({ route, navigation }) => {
   const [isLoadingEnd, setIsLoadingEnd] = useState<boolean>(false)
 
   const onGoBack = () => {
-    navigation.goBack()
+    navigation.navigate('BookingScreen')
   }
 
   return (

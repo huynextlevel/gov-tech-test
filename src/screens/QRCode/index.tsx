@@ -1,36 +1,113 @@
-import React from 'react'
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native'
-import { Camera, useCameraDevices } from 'react-native-vision-camera'
+import React, { useCallback, useRef } from 'react'
+import { Alert, View, TouchableOpacity, StyleSheet } from 'react-native'
 
-import { globalStyles } from 'src/styles'
+import RNQRGenerator from 'rn-qr-generator'
+import QRCodeScanner from 'react-native-qrcode-scanner'
+import Icon from 'react-native-vector-icons/MaterialIcons'
+import { launchImageLibrary } from 'react-native-image-picker'
+
+import { Dimension } from 'src/utils'
 import { IScreen } from 'src/globals/types'
+import { useScreenEventListener } from 'src/hooks'
+import { QRCustomMarker } from 'src/components/extra'
 
 const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
-  const devices = useCameraDevices()
-  const device = devices.back
+  const qrScanRef = useRef<any>(null)
+  
+  const reActivateScanner = useCallback(() => {
+    qrScanRef.current?.reactivate()
+  }, [qrScanRef])
 
-  if (!device) return
+  const onDidFocus = () => {
+    reActivateScanner() 
+  }
+
+  useScreenEventListener({
+    navigation,
+    listenerType: 'focus',
+    callback: onDidFocus
+  })
+
+  const alertMessage = (title: string) => {
+    Alert.alert(
+      title,
+      '',
+      [{ text: 'Done', onPress: reActivateScanner }]
+    )
+  }
+
+  const onSuccess = (e: any) => {
+    navigation.navigate('ResultScreen', { url: e.data })
+  }
+
+  const detectQR = (image: any) => {
+    RNQRGenerator.detect({
+      uri: image.uri,
+    }).then((response) => {
+      const { values } = response
+      if (values.length !== 0) {
+        navigation.navigate('ResultScreen', { url: values[0] })
+      } else alertMessage('The image is not QR Code image.')
+    }).catch((error) => alertMessage(JSON.stringify(error)))
+  }
+
+  const onChooseFromLibrary = () => {
+    const options = {
+      mediaType: 'photo',
+      includeBase64: false,
+    } as any
+
+    launchImageLibrary(options, (res) => {
+      if (res.assets !== undefined) detectQR(res.assets[0])
+    })
+  }
+
   return (
-    <Camera
-      device={device}
-      isActive={true}
-      style={StyleSheet.absoluteFill}
-    />
-    // <View style={styles.container}>
-    //   <TouchableOpacity onPress={handleGoBack}>
-    //     <Text style={globalStyles.goBackText}>Go Back</Text>
-    //   </TouchableOpacity>
-    // </View>
+    <View style={styles.container}>
+      <View style={styles.topControlContainer}>
+        <TouchableOpacity style={{ marginRight: 20 }} onPress={onChooseFromLibrary}>
+          <Icon name="collections" size={30} color="#FFF"/>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Icon name="close" size={35} color="#FFF"/>
+        </TouchableOpacity>
+      </View>
+      
+      <QRCodeScanner
+        showMarker
+        ref={qrScanRef}
+        onRead={onSuccess}
+        cameraStyle={styles.cameraContainer}
+        topViewStyle={styles.zeroContainer}
+        bottomViewStyle={styles.zeroContainer}
+        customMarker={<QRCustomMarker />}
+      />
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    position: 'absolute'
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  topControlContainer: {
+    top: 50,
+    zIndex: 100,
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    paddingHorizontal: 10,
+    justifyContent: 'space-between'
+  },
+  zeroContainer: {
+    flex: 0,
+    height: 0,
+  },
+  cameraContainer: {
+    height: Dimension.vertical
   }
 })
 

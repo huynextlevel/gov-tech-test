@@ -18,4 +18,3 @@ export const roundToNearestHalfHour = (time: Date) =>  {
 
   return formatTime;
 }
-
