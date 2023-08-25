@@ -1,4 +1,4 @@
-
+// @ts-ignore
 import { check, request, RESULTS, PERMISSIONS } from 'react-native-permissions/mock'
 import { checkCameraPermission } from 'src/globals/permissions'
 

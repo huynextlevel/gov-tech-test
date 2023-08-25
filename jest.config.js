@@ -11,7 +11,7 @@ module.exports = {
   setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js'],
   clearMocks: true,
   transformIgnorePatterns: [
-    "node_modules/(?!(@react-native|react-native|@react-navigation|react-navigation))"
+    "node_modules/(?!(@react-native|react-native|@react-navigation|@react-native-community/netinfo))"
   ],
   moduleFileExtensions: [
     "ts",

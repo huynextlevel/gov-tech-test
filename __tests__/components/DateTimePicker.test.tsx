@@ -5,6 +5,14 @@ import { DateTimePicker } from 'src/components/extra'
 describe('DateTimePicker component unit test', () => {
   const mockOnClose = jest.fn()
   const mockOnDateChange = jest.fn()
+  
+  beforeAll(() => {
+    jest.clearAllMocks()
+  })
+
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
 
   const defaultProps = {
     date: new Date(),
