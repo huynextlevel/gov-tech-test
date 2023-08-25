@@ -6,7 +6,7 @@ import { Dimension } from 'src/utils'
 
 const QRCustomMarker = () => {
   return (
-    <View style={styles.rectangle}>
+    <View accessibilityLabel='qrCustomMarker' style={styles.rectangle}>
       <Icon
         name="scan-outline"
         size={Dimension.horizontalPercent(0.73)}

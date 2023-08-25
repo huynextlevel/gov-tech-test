@@ -48,7 +48,7 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
       if (values.length !== 0) {
         navigation.navigate('ResultScreen', { url: values[0] })
       } else alertMessage('The image is not QR Code image.')
-    }).catch((error) => alertMessage(JSON.stringify(error)))
+    }).catch((error) => alertMessage('Detect QRCode error'))
   }
 
   const onChooseFromLibrary = () => {
@@ -65,7 +65,7 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.topControlContainer}>
-        <TouchableOpacity testID="chooseFromLibraryButton" style={{ marginRight: 20 }} onPress={onChooseFromLibrary}>
+        <TouchableOpacity accessibilityLabel="chooseFromLibraryButton" style={{ marginRight: 20 }} onPress={onChooseFromLibrary}>
           <Icon name="collections" size={30} color="#FFF"/>
         </TouchableOpacity>
         <TouchableOpacity accessibilityLabel="cancelButton" onPress={() => navigation.goBack()}>

@@ -31,16 +31,34 @@ describe('BoxButtonContainer component unit test', () => {
     expect(onPressMock).not.toHaveBeenCalled()
   })
 
+  it('renders correct width', () => {
+    const { getByLabelText, rerender } = render(
+      <BoxButtonContainer isFullWidth={true} type="pri" size="large" onPress={onPressMock} />
+    )
+
+    let button = getByLabelText('boxButton')
+    expect(button).toBeOnTheScreen
+    expect(button.props.style.width).toBe('100%')
+  
+    rerender(
+      <BoxButtonContainer isFullWidth={false} type="pri" size="large" onPress={onPressMock} />
+    )
+    expect(button).toBeOnTheScreen
+    expect(button.props.style.width).toBe('auto')
+  })
+
   it('renders correct styles based on type prop', () => {
     const { getByLabelText, rerender } = render(
       <BoxButtonContainer type="pri" size="large" onPress={onPressMock} />
     )
 
     let button = getByLabelText('boxButton')
+    expect(button).toBeOnTheScreen
     expect(button.props.style.backgroundColor).toBe(colors['blue'])
 
     rerender(<BoxButtonContainer type="sec" size="large" onPress={onPressMock} />)
     button = getByLabelText('boxButton')
+    expect(button).toBeOnTheScreen
     expect(button.props.style.backgroundColor).toBe(colors['gray'])
   })
 })

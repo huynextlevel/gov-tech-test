@@ -30,6 +30,7 @@ const DateTimePicker = ({
             backgroundColor: colors.gray5,
             height: !isShowConfirmTitle ? 40 : 0
           }}
+          accessibilityLabel="confirmHeader"
         >
           {isShowConfirmTitle && (
             <TouchableOpacity
@@ -53,6 +54,7 @@ const DateTimePicker = ({
         <DatePicker
           mode={mode}
           date={date}
+          accessibilityLabel="datePicker"
           androidVariant="iosClone"
           onDateChange={onDateChange}
           minuteInterval={minuteInterval}

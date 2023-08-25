@@ -37,6 +37,21 @@ describe('useScreenEventListener', () => {
     expect(mockAddListener).toHaveBeenCalledWith('focus', expect.any(Function))
   })
 
+  it('should not add the listener if navigation is undefined', () => {
+    function ComponentWithoutNavigation() {
+      useScreenEventListener({
+        navigation: undefined,
+        listenerType: 'focus',
+        callback: mockCallback
+      });
+      return null;
+    }
+  
+    render(<ComponentWithoutNavigation />);
+  
+    expect(mockAddListener).not.toHaveBeenCalled();
+  })
+
   it('should call the callback when the listener is triggered', () => {
     render(<TestComponent />)
 

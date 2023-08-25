@@ -5,7 +5,7 @@ export interface WebviewProps extends WebViewProps {
   url: string
 }
 
-const Webview = ({ url, ...rest }: WebviewProps) => {
+const WebviewComponent = ({ url, ...rest }: WebviewProps) => {
   return (
     <WebView
       originWhitelist={['*']}
@@ -13,9 +13,10 @@ const Webview = ({ url, ...rest }: WebviewProps) => {
       javaScriptEnabled
       domStorageEnabled
       startInLoadingState
+      accessibilityLabel="webview-component"
       {...rest}
     />
   )
 }
 
-export default Webview
+export default WebviewComponent

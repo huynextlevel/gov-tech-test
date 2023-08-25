@@ -20,7 +20,7 @@ const useScreenEventListener = ({
   }, [callback])
 
   useEffect(() => {
-    if (navigationRef) {
+    if (navigationRef && navigationRef.current) {
       listenerRef.current = navigationRef.current.addListener(
         listenerType,
         () => {
