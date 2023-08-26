@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react'
-import { Alert, View, StatusBar, StyleSheet, TouchableOpacity } from 'react-native'
+import { Alert, View, Platform, StatusBar, StyleSheet, TouchableOpacity } from 'react-native'
 
 import RNQRGenerator from 'rn-qr-generator'
 import QRCodeScanner from 'react-native-qrcode-scanner'
@@ -43,7 +43,7 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
 
   const detectQR = (image: any) => {
     RNQRGenerator.detect({
-      uri: image.sourceURL,
+      uri: Platform.OS === 'android' ? image.path : image.sourceURL
     }).then((response) => {
       const { values } = response
       if (values.length !== 0) {
