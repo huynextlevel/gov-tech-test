@@ -63,7 +63,6 @@ const SortActionSheet: ForwardRefRenderFunction<
     <ActionSheet
       ref={actionSheetRef}
       headerAlwaysVisible
-      useBottomSafeAreaPadding
       containerStyle={{ paddingTop: 8 }}
       onClose={onClose}
       onBeforeShow={() => {
@@ -114,7 +113,7 @@ const SortActionSheet: ForwardRefRenderFunction<
 const styles = StyleSheet.create({
   root: {
     paddingTop: 20,
-    paddingHorizontal: 17,
+    paddingHorizontal: 17
   },
   row: {
     paddingVertical: 16,

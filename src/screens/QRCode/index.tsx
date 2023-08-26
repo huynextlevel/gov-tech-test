@@ -1,10 +1,11 @@
 import React, { useCallback, useRef } from 'react'
-import { Alert, View, TouchableOpacity, StyleSheet } from 'react-native'
+import { Alert, View, StatusBar, StyleSheet, TouchableOpacity } from 'react-native'
 
 import RNQRGenerator from 'rn-qr-generator'
 import QRCodeScanner from 'react-native-qrcode-scanner'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import { launchImageLibrary } from 'react-native-image-picker'
+import ImagePicker from 'react-native-image-crop-picker'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 import { Dimension } from 'src/utils'
 import { IScreen } from 'src/globals/types'
@@ -42,7 +43,7 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
 
   const detectQR = (image: any) => {
     RNQRGenerator.detect({
-      uri: image.uri,
+      uri: image.sourceURL,
     }).then((response) => {
       const { values } = response
       if (values.length !== 0) {
@@ -53,18 +54,22 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
 
   const onChooseFromLibrary = () => {
     const options = {
+      width: 600,
+      height: 600,
+      cropping: false,
       mediaType: 'photo',
-      includeBase64: false,
+      includeBase64: false
     } as any
 
-    launchImageLibrary(options, (res) => {
-      if (res.assets !== undefined) detectQR(res.assets[0])
+    ImagePicker.openPicker(options).then(media => {
+      detectQR(media)
     })
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.topControlContainer}>
+      <StatusBar barStyle="light-content"/>
+      <View style={[styles.topControlContainer, { top: getStatusBarHeight(true) }]}>
         <TouchableOpacity accessibilityLabel="chooseFromLibraryButton" style={{ marginRight: 20 }} onPress={onChooseFromLibrary}>
           <Icon name="collections" size={30} color="#FFF"/>
         </TouchableOpacity>
@@ -93,7 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   topControlContainer: {
-    top: 50,
+    // top: 20,
     zIndex: 100,
     width: '100%',
     flexDirection: 'row',

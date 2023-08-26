@@ -1,13 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
-import Toast from 'react-native-toast-message'
-import NetInfo, { NetInfoState, NetInfoSubscription } from '@react-native-community/netinfo'
 
 import { Typography } from 'src/components/basics/typographies'
 
 interface State {
   hasError: boolean
-  isOnline: boolean | null
 }
 
 export interface ErrorBoundaryProps {
@@ -15,45 +12,15 @@ export interface ErrorBoundaryProps {
 }
 
 class ErrorBoundary extends React.Component<ErrorBoundaryProps, State> {
-  private netInfoUnsubscribe: NetInfoSubscription | null = null
-
   constructor(props: {}) {
     super(props)
     this.state = {
-      hasError: false,
-      isOnline: true
-    }
-  }
-
-  componentDidMount() {
-    this.netInfoUnsubscribe = NetInfo.addEventListener((state: NetInfoState) => {
-      const isOnline = state.isConnected
-      this.setState({ isOnline })
-
-      if (isOnline) {
-        Toast.show({
-          type: 'success',
-          text1: 'Network Connected',
-          visibilityTime: 2000,
-        })
-      } else {
-        Toast.show({
-          type: 'error',
-          text1: 'Network Disconnected',
-          visibilityTime: 2000,
-        })
-      }
-    })
-  }
-
-  componentWillUnmount() {
-    if (this.netInfoUnsubscribe) {
-      this.netInfoUnsubscribe()
+      hasError: false
     }
   }
 
   static getDerivedStateFromError(_: Error): State {
-    return { hasError: true, isOnline: true }
+    return { hasError: true }
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {

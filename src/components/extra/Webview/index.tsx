@@ -1,4 +1,5 @@
 import React from 'react'
+import { Platform } from 'react-native'
 import { WebView, WebViewProps } from 'react-native-webview'
 
 export interface WebviewProps extends WebViewProps {
@@ -8,13 +9,16 @@ export interface WebviewProps extends WebViewProps {
 const WebviewComponent = ({ url, ...rest }: WebviewProps) => {
   return (
     <WebView
-      originWhitelist={['*']}
-      source={{ uri: url }}
+      {...rest}
       javaScriptEnabled
       domStorageEnabled
       startInLoadingState
+      style={{ flex: 1 }}
+      source={{ uri: url }}
+      originWhitelist={['*']}
       accessibilityLabel="webview-component"
-      {...rest}
+      setSupportMultipleWindows={false}
+      {...(Platform.OS === 'android' && { userAgent: 'undefined' })}
     />
   )
 }

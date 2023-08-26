@@ -22,11 +22,11 @@ const ResultScreen: React.FC<IScreen> = ({ route, navigation }) => {
       <Webview
         url={url}
         testID="webview"
+        overScrollMode="never"
+        scrollEnabled={false}
         onLoadEnd={() => {
           setIsLoadingEnd(true)
         }}
-        overScrollMode="never"
-        scrollEnabled={false}
         showsVerticalScrollIndicator={false}
       />
       {isLoadingEnd && (
