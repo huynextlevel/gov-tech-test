@@ -1,27 +1,35 @@
-import React from 'react'
+import React, { useEffect, useContext } from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 
-import { useInit, useScreenEventListener } from 'src/hooks'
+import { useInit } from 'src/hooks'
 
 import { IScreen } from 'src/globals/types'
 import { useGetRoomList } from 'src/services'
 import { Typography } from 'src/components/basics/typographies'
 
+import { APIErrorContext, APIErrorContextType } from 'src/context/APIErrorContext'
+
 const SplashScreen: React.FC<IScreen> = ({ navigation }) => {
   const { init } = useInit()
-  const { fetchRoomList } = useGetRoomList()
+  const { isError, isLoading, fetchRoomList } = useGetRoomList()
+  const { setError } = useContext<APIErrorContextType | any>(APIErrorContext)
 
-  const onDidFocus = async () => {
-    await init()
-    fetchRoomList()
-    setTimeout(() => navigation.navigate('Main'), 1000)
-  }
+  useEffect(() => {
+    const initialApp = async () => {
+      await init()
 
-  useScreenEventListener({
-    navigation,
-    listenerType: 'focus',
-    callback: onDidFocus
-  })
+      if (isError) {
+        setError({
+          error: 'Error: fetch room list',
+          retryApiCall: fetchRoomList
+        })
+      } else if (!isLoading) {
+        setTimeout(() => navigation.navigate('Main'), 500)
+      }
+    }
+  
+    initialApp()
+  }, [isError, isLoading])
 
   return (
     <View style={styles.container}>

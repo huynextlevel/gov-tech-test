@@ -31,3 +31,9 @@ export type CaptureData = {
   // iOS only
   size?: number
 }
+
+export interface ApiRequest {
+  data?: any
+  onSuccess?: (data?: any) => void
+  onError?: (data?: any) => void
+}

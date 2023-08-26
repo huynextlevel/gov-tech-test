@@ -8,6 +8,7 @@ import { appStore } from './src/store'
 import AppView from './src/routers/AppViewContainer'
 import { ErrorBoundary } from 'src/components/extra'
 import { NetworkProvider } from 'src/context/NetworkContext'
+import { APIErrorProvider } from 'src/context/APIErrorContext'
 
 LogBox.ignoreAllLogs()
 
@@ -18,8 +19,10 @@ const App = () => {
         <NavigationContainer>
           <SafeAreaProvider>
             <NetworkProvider>
-              <StatusBar barStyle="dark-content"/>
-              <AppView />
+              <APIErrorProvider>
+                <StatusBar barStyle="dark-content"/>
+                <AppView />
+              </APIErrorProvider>
             </NetworkProvider>
           </SafeAreaProvider>
         </NavigationContainer>

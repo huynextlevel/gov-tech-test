@@ -12,7 +12,7 @@ This is the source code of GovTech Test Assignment
 
 - [Node](https://nodejs.org) v16 (it is recommended to install it via [NVM](https://github.com/creationix/nvm))
 - [Yarn](https://yarnpkg.com/)
-- [Cocoapdds](https://formulae.brew.sh/formula/cocoapods) (it is recommended to install it via Homebrew)
+- [Cocoapods](https://formulae.brew.sh/formula/cocoapods) (it is recommended to install it via Homebrew)
 - A development machine set up for React Native by following [these instructions](https://reactnative.dev/docs/environment-setup)
 
 ## My Specs
@@ -52,7 +52,7 @@ This is the source code of GovTech Test Assignment
 ### Testing
 
 1. Go to project's root directory, `cd gov-tech-test`
-2. Run `yarn test` to run all tests under `__tests__` folders
+2. Run `yarn test` to run all tests under `__tests__` folder
 3. Run `yarn test:coverage` to run all tests and also produces a code coverage report
 
 ### Test Coverage Result
