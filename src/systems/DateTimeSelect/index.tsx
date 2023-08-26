@@ -4,7 +4,7 @@ import moment from 'moment-timezone'
 
 import { colors } from 'src/styles'
 import { roundToNearestHalfHour } from 'src/utils'
-import { DateTimePickerProps } from 'src/components/extra/DateTimePicker/types'
+import { DateTimePickerProps } from 'src/components/extra/DateTimePicker'
 
 import { DateTimeModal } from 'src/systems'
 import { Typography } from 'src/components/basics/typographies'
@@ -12,11 +12,34 @@ import { Typography } from 'src/components/basics/typographies'
 type DateTimeProps = Pick<DateTimePickerProps, 'mode' | 'minuteInterval'>
 
 export interface DateTimeSelectProps {
+  /**
+   * @prop date: the current selected date
+   */
   date: Date
+
+  /**
+   * @prop title: the title of selector
+   */
   title: string
+  
+  /**
+   * @prop style: (Optional) Additional style of container
+   */
   style?: ViewStyle
+  
+  /**
+   * @prop mode: (date, time, datetime) The date picker mode
+   */
   mode?: DateTimeProps['mode']
+
+  /**
+   * @prop minuteInterval: The interval at which minutes can be selected.
+   */
   minuteInterval?: DateTimeProps['minuteInterval']
+
+  /**
+   * @prop setBookingDate: Callback function
+   */
   setBookingDate: (date: Date) => void
 }
 

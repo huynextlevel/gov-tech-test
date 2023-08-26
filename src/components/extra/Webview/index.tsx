@@ -3,6 +3,9 @@ import { Platform } from 'react-native'
 import { WebView, WebViewProps } from 'react-native-webview'
 
 export interface WebviewProps extends WebViewProps {
+  /**
+   * @prop url: The URL of website
+   */
   url: string
 }
 

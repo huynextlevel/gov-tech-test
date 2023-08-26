@@ -9,7 +9,11 @@ import { BoxButtonContainerProps } from '../BoxButtonCointainer'
 type ButtonTypographyProps = Pick<TypographyProps, 'size' | 'color' | 'weight'>
 
 export interface BoxTextButtonProps extends BoxButtonContainerProps {
+  /**
+   * @prop label: Label of button
+   */
   label: string
+
   textSize?: ButtonTypographyProps['size']
   textColor?: ButtonTypographyProps['color']
   textWeight?: ButtonTypographyProps['weight']

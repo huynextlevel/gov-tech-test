@@ -12,10 +12,17 @@ import { DateTimePicker } from 'src/components/extra'
 import { BasicIcon } from 'src/components/basics/icons'
 import { BasicModal } from 'src/components/basics/modals'
 
-import { DateTimePickerProps } from 'src/components/extra/DateTimePicker/types'
+import { DateTimePickerProps } from 'src/components/extra/DateTimePicker'
 
 export type DateTimeModalHandle = {
+  /**
+   * @prop show: callback to show the modal
+   */
   show: () => void
+
+  /**
+   * @prop close: callback to close the modal
+   */
   close: () => void
 }
 

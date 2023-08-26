@@ -5,8 +5,19 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 export type Edges = 'top' | 'left' | 'right' | 'bottom'
 
 interface ILayoutProps {
+  /**
+   * @prop style: (Optional) Additional style of container
+   */
   style?: ViewStyle
+
+  /**
+   * @prop children: Any items inside Main Layout
+   */
   children: any
+
+  /**
+   * @prop edges: edge of screen
+   */
   edges?: Edges[] | undefined
 }
 

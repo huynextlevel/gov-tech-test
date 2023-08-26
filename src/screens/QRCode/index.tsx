@@ -41,6 +41,7 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
     navigation.navigate('ResultScreen', { url: e.data })
   }
 
+  // Function handle detect the selected image is an QRCode or not
   const detectQR = (image: any) => {
     RNQRGenerator.detect({
       uri: Platform.OS === 'android' ? image.path : image.sourceURL
@@ -52,6 +53,7 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
     }).catch((error) => alertMessage('Detect QRCode error'))
   }
 
+  // Function handle choose image from photo library
   const onChooseFromLibrary = () => {
     const options = {
       width: 600,

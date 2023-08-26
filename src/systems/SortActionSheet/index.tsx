@@ -15,12 +15,26 @@ import { Typography } from 'src/components/basics/typographies'
 import { RadioButton, BoxTextButton } from 'src/components/basics/buttons'
 
 export interface SortActionSheetHandle {
+  /**
+   * @prop show: callback to show the modal
+   */
   show: () => void
+
+  /**
+   * @prop close: callback to close the modal
+   */
   close: () => void
 }
 
 export interface SortActionSheetProps {
+  /**
+   * @prop value: The selected sort value
+   */
   value: string | undefined
+
+  /**
+   * @prop onChange: Callback function
+   */
   onChange: (value: any) => void
 }
 

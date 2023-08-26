@@ -14,17 +14,51 @@ import { colors } from 'src/styles'
 import { Dimension } from 'src/utils'
 
 export type BasicModalHandle = {
+  /**
+   * @prop isVisible: state of modal
+   */
   isVisible: boolean
+
+  /**
+   * @prop show: callback to show the modal
+   */
   show: () => void
+
+  /**
+   * @prop close: callback to close the modal
+   */
   close: () => void
 }
 
 export interface BasicModalProps {
+  /**
+   * @prop type: (popup, bottom) Type of BasicModal
+   */
   type: 'popup' | 'bottom'
-  onClose?: (data?: any) => void
+
+  /**
+   * @prop children: Any items inside Modal
+   */
   children: any
+
+  /**
+   * @prop modalStyle: (Optional) Additional style of modal container.
+   */
   modalStyle?: ViewStyle
+
+  /**
+   * @prop containerStyle: (Optional) Additional style of content container inside modal.
+   */
   containerStyle?: ViewStyle
+
+  /**
+   * @prop onClose: (Optional) Additional callback functions you want to excute when modal close
+   */
+  onClose?: (data?: any) => void
+
+  /**
+   * @prop onBackdropPress: (Optional) Callback function for close modal when click outside modal
+   */
   onBackdropPress?: () => void
 }
 
@@ -76,13 +110,13 @@ const BasicModal: ForwardRefRenderFunction<BasicModalHandle, BasicModalProps> = 
       accessibilityLabel="basicModal"
       deviceHeight={Dimension.vertical}
       hideModalContentWhileAnimating={true}
-      style={[styles[getModalStyle.container], containerStyle]}
+      style={[styles[getModalStyle.container], modalStyle]}
     >
       <View
         style={[
           type === 'bottom' && { paddingBottom: insets.bottom },
           styles[getModalStyle.item],
-          modalStyle
+          containerStyle
         ]}
       >
         {children}

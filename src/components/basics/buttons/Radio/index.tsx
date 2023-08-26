@@ -4,9 +4,24 @@ import { View, TouchableOpacity, StyleSheet } from 'react-native'
 import { colors } from 'src/styles'
 
 export interface RadioButtonProps {
+  /**
+   * @prop value: Radio Button value
+   */
   value: any
+
+  /**
+   * @prop selectedValue: Selected value when you select radio
+   */
   selectedValue: any
+
+  /**
+   * @prop borderColor: Color of outer cirle border
+   */
   borderColor?: keyof typeof colors
+
+  /**
+   * @prop onChange: Call back function
+   */
   onChange: (newValue: any) => void
 }
 

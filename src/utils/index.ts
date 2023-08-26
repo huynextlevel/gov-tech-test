@@ -4,6 +4,4 @@ export * from './helpers'
 
 import Dimension from './dimensions'
 
-export {
-  Dimension
-}
+export { Dimension }

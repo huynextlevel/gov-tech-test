@@ -1,11 +1,30 @@
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
 import DatePicker from 'react-native-date-picker'
+import { DatePickerProps } from 'react-native-date-picker'
 
 import { colors } from 'src/styles'
-import { DateTimePickerProps } from './types'
 
 import { Typography } from 'src/components/basics/typographies'
+
+export interface DateTimePickerProps extends DatePickerProps {
+  /**
+   * @prop onClose: (Optional) Callback function to close
+   */
+  onClose?: () => void
+
+  /**
+   * @prop onClose: (Optional) Set to true if you want to show confirm title
+   * @default false
+   */
+  isShowConfirmTitle?: boolean
+
+  /**
+   * @prop onClose: (Optional) Set to true if you want to show confirm header
+   * @default true
+   */
+  isShowConfirmHeader?: boolean
+}
 
 const DateTimePicker = ({
   date,

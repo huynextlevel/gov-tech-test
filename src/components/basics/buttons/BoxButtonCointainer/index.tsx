@@ -4,15 +4,53 @@ import { StyleSheet, TouchableOpacity, ViewStyle, TouchableOpacityProps } from '
 import { colors } from 'src/styles'
 
 export interface BoxButtonContainerProps extends TouchableOpacityProps {
+  /**
+   * @prop type: (pri, sec) Type of BoxButton
+   */
   type: 'pri' | 'sec'
+
+  /**
+   * @prop size: (large, small, xsmall) Size of BoxButton
+   */
   size: 'large'
+
+  /**
+   * @prop style: (Optional) Additional style of container.
+   */
   style?: ViewStyle
+
+  /**
+   * @prop children: Any items inside button
+   */
   children?: any
+
+  /**
+   * @prop isDisabled: (Optional) Set to true if button should be in disabled state.
+   * @default false
+   */
   isDisabled?: boolean
+
+  /**
+   * @prop buttonRadius: Radius of BoxButton
+   * @default 100
+   */
   buttonRadius?: number
-  activeOpacity?: number
+
+  /**
+   * @prop isFullWidth: Set to false if button width fit content
+   * @default true
+   */
   isFullWidth?: boolean
+
+  /**
+   * @prop enableActiveOpacity: (Optional) To enable activeOpacity.
+   * @default true
+   */
   enableActiveOpacity?: boolean
+
+  /**
+   * @prop onPress: Callback function.
+   */
   onPress: (data?: any) => void
 }
 
@@ -21,9 +59,8 @@ const BoxButtonContainer = ({
   size,
   style,
   children,
-  isDisabled,
+  isDisabled = false,
   buttonRadius = 100,
-  activeOpacity = 0.5,
   isFullWidth = true,
   enableActiveOpacity = true,
   onPress,
@@ -34,7 +71,7 @@ const BoxButtonContainer = ({
       onPress={onPress}
       disabled={isDisabled}
       accessibilityLabel="boxButton"
-      activeOpacity={enableActiveOpacity ? activeOpacity : 1}
+      activeOpacity={enableActiveOpacity ? 0.5 : 1}
       style={{
         ...buttonStyles[type]({
           size,

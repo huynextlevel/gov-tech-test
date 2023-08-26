@@ -6,7 +6,7 @@ import {
   PERMISSIONS
 } from 'react-native-permissions'
 
-
+// Function handle check/get camera permission
 const checkCameraPermission = async () => {
   const permissions = Platform.OS === 'ios' ? PERMISSIONS.IOS.CAMERA : PERMISSIONS.ANDROID.CAMERA;
   const cameraStatus = await check(permissions);

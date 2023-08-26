@@ -15,11 +15,21 @@ import { BoxTextButton } from 'src/components/basics/buttons'
 import { Typography } from 'src/components/basics/typographies'
 
 export type NetworkModalHandle = {
+  /**
+   * @prop show: callback to show the modal
+   */
+
   show: () => void
+  /**
+   * @prop close: callback to close the modal
+   */
   close: () => void
 }
 
 export interface NetworkModalProps {
+  /**
+   * @prop isConnected: Network status
+   */
   isConnected: boolean | null
 }
 

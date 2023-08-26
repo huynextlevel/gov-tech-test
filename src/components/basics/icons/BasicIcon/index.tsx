@@ -7,12 +7,40 @@ import { colors } from 'src/styles'
 import basicIcons from 'src/assets/svgs/basics'
 
 export interface BasicIconProps extends SvgProps {
+  /**
+   * @prop name: svg file name from basic icons
+   */
   name: keyof typeof basicIcons
+
+  /**
+   * @prop size: (Optional) width and height value, width and height can be implented seperately, will override size value
+   * @default 24
+   */
   size?: number
+
+  /**
+   * @prop width: (Optional) width of the icon, uses size default value(24)
+   */
   width?: number
+
+  /**
+   * @prop height: (Optional) height of the icon, uses size default value(24)
+   */
   height?: number
+
+  /**
+   * @prop color: (Optional) fill value for svg
+   */
   color?: keyof typeof colors
+
+  /**
+   * @prop sColor: (Optional) stroke value for svg
+   */
   sColor?: keyof typeof colors
+
+  /**
+   * @prop style: (Optional) additional style properties can be assigned via the style prop if needed
+   */
   style?: ViewStyle
 }
 

@@ -14,6 +14,9 @@ import { BasicIcon } from 'src/components/basics/icons'
 import { Typography } from 'src/components/basics/typographies'
 
 export interface RoomListProps {
+  /**
+   * @prop timeSlot: The selected time slot
+   */
   timeSlot: Date
 }
 
@@ -38,6 +41,7 @@ const RoomList = ({ timeSlot }: RoomListProps) => {
     sortSheetRef.current?.show()
   }, [sortSheetRef])
 
+  // Function return the status of room based on the selected time slot
   const roomStatus = useCallback((availability: any) => {
     const availabilityTime = availability[formatTimeSlot]
 
@@ -54,6 +58,7 @@ const RoomList = ({ timeSlot }: RoomListProps) => {
     }
   }, [formatTimeSlot])
 
+  // Function handle sorting data when you sort value change
   const onSort = useCallback((sortValue: any) => {
     setSortValue(sortValue)
     if (sortValue !== undefined) {

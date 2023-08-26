@@ -29,6 +29,7 @@ export const NetworkProvider: React.FC<NetworkProviderProps> = ({ children }) =>
   }, [modalRef])
 
   useEffect(() => {
+    // Function to listener when Network status change
     const unsubscribe = NetInfo.addEventListener(state => {
       const currentConnectedStatus = state.isConnected
       if (isConnected && !currentConnectedStatus) {

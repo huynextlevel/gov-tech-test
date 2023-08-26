@@ -5,12 +5,39 @@ import { colors } from 'src/styles'
 import { fontWeights, textAlign } from 'src/components/globals'
 
 export interface TypographyProps {
+  /**
+   * @prop color: Color of text
+   */
   color?: keyof typeof colors
+
+  /**
+   * @prop weight: Weight of text
+   */
   weight?: keyof typeof fontWeights
+
+  /**
+   * @prop align: Align position of text
+   */
   align?: keyof typeof textAlign
+
+  /**
+   * @prop size: Size of text
+   */
   size?: number
+
+  /**
+   * @prop extraColor: Additional color when you want to use different color in the design system
+   */
   extraColor?: string
-  children?: any
+
+  /**
+   * @prop children: Any items inside typography
+   */
+  children: any
+
+  /**
+   * @prop style: (Optional) Additional style of typography.
+   */
   style?: StyleProp<TextStyle>
 }
 

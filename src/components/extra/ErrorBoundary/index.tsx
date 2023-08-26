@@ -8,6 +8,9 @@ interface State {
 }
 
 export interface ErrorBoundaryProps {
+  /**
+   * @prop children: Any items in Error boundary
+   */
   children?: any
 }
 
