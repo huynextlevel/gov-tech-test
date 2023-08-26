@@ -3,7 +3,7 @@ import { Alert } from 'react-native'
 import { render, fireEvent, waitFor } from '@testing-library/react-native'
 import RNQRGenerator from 'rn-qr-generator'
 import QRCodeScanner from 'react-native-qrcode-scanner'
-import { launchImageLibrary } from 'react-native-image-picker'
+import ImagePicker from 'react-native-image-crop-picker'
 
 import QRCodeScreen from 'src/screens/QRCode'
 
@@ -19,10 +19,8 @@ jest.mock('rn-qr-generator', () => ({
   detect: jest.fn()
 }))
 
-jest.mock('react-native-image-picker', () => ({
-  launchImageLibrary: jest.fn((_, callback) => {
-    callback({ assets: [{ uri: 'src/assets/images/qrcode_booking.png' }] })
-  }),
+jest.mock('react-native-image-crop-picker', () => ({
+  openPicker: jest.fn().mockImplementation(() => Promise.resolve({ path: 'src/assets/images/qrcode_booking.png' }))
 }))
 
 describe('<QRCodeScreen />', () => {
@@ -71,7 +69,7 @@ describe('<QRCodeScreen />', () => {
     fireEvent.press(getByLabelText('chooseFromLibraryButton'))
 
     await waitFor(() => {
-      expect(launchImageLibrary).toHaveBeenCalledTimes(1)
+      expect(ImagePicker.openPicker).toHaveBeenCalledTimes(1)
       expect(mockNavigation.navigate).toHaveBeenCalledWith('ResultScreen', { url: 'https://qrgo.page.link/N3vzh' })
     })
   })
@@ -84,7 +82,7 @@ describe('<QRCodeScreen />', () => {
     fireEvent.press(getByLabelText('chooseFromLibraryButton'))
 
     await waitFor(() => {
-      expect(launchImageLibrary).toHaveBeenCalledTimes(1)
+      expect(ImagePicker.openPicker).toHaveBeenCalledTimes(1)
       expect(alertSpy).toHaveBeenCalledWith('The image is not QR Code image.', '', expect.anything())
     })
   })
@@ -95,7 +93,7 @@ describe('<QRCodeScreen />', () => {
     fireEvent.press(getByLabelText('chooseFromLibraryButton'))
 
     await waitFor(() => {
-      expect(launchImageLibrary).toHaveBeenCalledTimes(1)
+      expect(ImagePicker.openPicker).toHaveBeenCalledTimes(1)
       expect(alertSpy).toHaveBeenCalledWith('Detect QRCode error', '', expect.anything())
     })
   })
