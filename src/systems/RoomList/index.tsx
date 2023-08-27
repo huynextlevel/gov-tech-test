@@ -58,7 +58,11 @@ const RoomList = ({ timeSlot }: RoomListProps) => {
     }
   }, [formatTimeSlot])
 
-  // Function handle sorting data when you sort value change
+  /**
+   * Function handle sorting data when you sort value change.
+   * In the design, do not have design for order by.
+   * So sort order is always ascending order.
+   */
   const onSort = useCallback((sortValue: any) => {
     setSortValue(sortValue)
     if (sortValue !== undefined) {

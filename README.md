@@ -21,6 +21,10 @@ This is the source code of GovTech Test Assignment
 - Xcode v14.3.1
 - Android Studio Dolphin | 2021.3.1 Patch 1
 
+## Notes
+- The room list data do not have value for date. So this data didn't affected by date.
+- So when you choose date, data won't change. The data just change when time slot is changed.
+
 ## Getting Started
 
 ### Installation
