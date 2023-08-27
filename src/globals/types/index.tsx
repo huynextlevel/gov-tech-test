@@ -8,6 +8,12 @@ export type RootStackParamList = {
   ResultScreen: ResultParam
 }
 
+export type SortItem = {
+  id: string
+  label: string
+  value: string
+}
+
 export interface IScreen {
   route?: any
   navigation?: any

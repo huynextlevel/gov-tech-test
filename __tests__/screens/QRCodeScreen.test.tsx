@@ -74,6 +74,17 @@ describe('<QRCodeScreen />', () => {
     })
   })
 
+  it('QR Code not return website URL', async () => {
+    const { getByLabelText } = render(<QRCodeScreen navigation={mockNavigation} />)
+    detectSpy.mockResolvedValue({ values: ['qr code test message'], type: 'QRCode' })
+    fireEvent.press(getByLabelText('chooseFromLibraryButton'))
+
+    await waitFor(() => {
+      expect(ImagePicker.openPicker).toHaveBeenCalledTimes(1)
+      expect(alertSpy).toHaveBeenCalledWith('The image is not QR Code image.', '', expect.anything())
+    })
+  })
+
   it('shows an error alert when a non-QR Code image is chosen', async () => {
     const { getByLabelText } = render(<QRCodeScreen navigation={mockNavigation} />)
 

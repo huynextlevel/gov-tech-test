@@ -1,19 +1,18 @@
 import React, { useEffect } from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 
-import { useInit } from 'src/hooks'
+import { checkCameraPermission } from 'src/globals/permissions'
 
 import { IScreen } from 'src/globals/types'
 import { useGetRoomList } from 'src/services'
 import { Typography } from 'src/components/basics/typographies'
 
 const SplashScreen: React.FC<IScreen> = ({ navigation }) => {
-  const { init } = useInit()
   const { isError, isLoading } = useGetRoomList()
 
   useEffect(() => {
     const initialApp = async () => {
-      await init()
+      await checkCameraPermission()
 
       if (!isError && !isLoading) {
         setTimeout(() => navigation.navigate('Main'), 500)

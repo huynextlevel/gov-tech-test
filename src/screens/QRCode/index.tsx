@@ -47,10 +47,10 @@ const QRCodeScreen: React.FC<IScreen> = ({ navigation }) => {
       uri: Platform.OS === 'android' ? image.path : image.sourceURL
     }).then((response) => {
       const { values } = response
-      if (values.length !== 0) {
+      if (values.length !== 0 && values[0].indexOf('http') !== -1) {
         navigation.navigate('ResultScreen', { url: values[0] })
       } else alertMessage('The image is not QR Code image.')
-    }).catch((error) => alertMessage('Detect QRCode error'))
+    }).catch(error => alertMessage('Detect QRCode error'))
   }
 
   // Function handle choose image from photo library
@@ -100,7 +100,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   topControlContainer: {
-    // top: 20,
     zIndex: 100,
     width: '100%',
     flexDirection: 'row',

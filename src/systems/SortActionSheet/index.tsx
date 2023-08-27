@@ -9,6 +9,7 @@ import React, {
 import { View, StyleSheet } from 'react-native'
 import ActionSheet, { ActionSheetRef } from 'react-native-actions-sheet'
 
+import { SortItem } from 'src/globals/types'
 import { SORT_DATA, Dimension } from 'src/utils'
 
 import { Typography } from 'src/components/basics/typographies'
@@ -89,7 +90,7 @@ const SortActionSheet: ForwardRefRenderFunction<
         </Typography>
         <View style={styles.contentWrapper}>
           <View>
-            {SORT_DATA.map((item: any) => (
+            {SORT_DATA.map((item: SortItem) => (
               <View key={item.id} style={styles.row}>
                 <Typography size={16} color="gray3" weight="regular">
                   {item.label}
