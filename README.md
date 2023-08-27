@@ -45,7 +45,7 @@ This is the source code of GovTech Test Assignment
   - Run `npx react-native run-android` or Use Android Studio (Recommended)
 - On iOS:
   - cd `gov-tech-test/ios`
-  - Open `ios/govTechTest.xcworkspace` in Xcode
+  - Open `govTechTest.xcworkspace` file and wait Xcode open successfully
   - When Xcode open, then hit `Run` after selecting the desired device
   - If you want to test on the real device:
 
