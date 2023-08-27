@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 
 import { useInit } from 'src/hooks'
@@ -7,23 +7,15 @@ import { IScreen } from 'src/globals/types'
 import { useGetRoomList } from 'src/services'
 import { Typography } from 'src/components/basics/typographies'
 
-import { APIErrorContext, APIErrorContextType } from 'src/context/APIErrorContext'
-
 const SplashScreen: React.FC<IScreen> = ({ navigation }) => {
   const { init } = useInit()
-  const { isError, isLoading, fetchRoomList } = useGetRoomList()
-  const { setError } = useContext<APIErrorContextType | any>(APIErrorContext)
+  const { isError, isLoading } = useGetRoomList()
 
   useEffect(() => {
     const initialApp = async () => {
       await init()
 
-      if (isError) {
-        setError({
-          error: 'Error: fetch room list',
-          retryApiCall: fetchRoomList
-        })
-      } else if (!isLoading) {
+      if (!isError && !isLoading) {
         setTimeout(() => navigation.navigate('Main'), 500)
       }
     }

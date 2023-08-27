@@ -1,14 +1,10 @@
 import React, {
-  useRef,
   useState,
   useEffect,
-  ElementRef,
-  useCallback,
   createContext,
 } from 'react'
+import Toast from 'react-native-toast-message'
 import NetInfo from '@react-native-community/netinfo'
-
-import { NetworkModal } from 'src/systems'
 
 interface NetworkContextType {
   isConnected: boolean | null
@@ -21,30 +17,34 @@ interface NetworkProviderProps {
 }
 
 export const NetworkProvider: React.FC<NetworkProviderProps> = ({ children }) => {
-  const modalRef = useRef<ElementRef<typeof NetworkModal>>(null)
   const [isConnected, setIsConnected] = useState<boolean | null>(true)
-
-  const show = useCallback(() => {
-    modalRef.current?.show()
-  }, [modalRef])
 
   useEffect(() => {
     // Function to listener when Network status change
     const unsubscribe = NetInfo.addEventListener(state => {
       const currentConnectedStatus = state.isConnected
       if (isConnected && !currentConnectedStatus) {
-        show()
+        Toast.show({
+          type: 'error',
+          text1: 'Oops! Looks like your device is not connected to the Internet.',
+          visibilityTime: 2000
+        })
+      } else if (!isConnected && currentConnectedStatus) {
+        Toast.show({
+          type: 'success',
+          text1: 'Great! Your Internet is re-connected again.',
+          visibilityTime: 2000,
+        })
       }
 
       setIsConnected(currentConnectedStatus)
     })
 
     return () => unsubscribe()
-  }, [show, isConnected])
+  }, [isConnected])
 
   return (
     <NetworkContext.Provider value={{ isConnected }}>
-      <NetworkModal ref={modalRef} isConnected={isConnected}/>
       {children}
     </NetworkContext.Provider>
   )
