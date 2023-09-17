@@ -13,10 +13,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2BA5021E18994D2296EF9133 /* index.ts in Resources */ = {isa = PBXBuildFile; fileRef = EF457BCFEA624637A73DFC8C /* index.ts */; };
 		5A9935B5D5FF43CA81C15269 /* ic_close_line_bold.svg in Resources */ = {isa = PBXBuildFile; fileRef = E4EA20C184894B6CB4CFB917 /* ic_close_line_bold.svg */; };
-		5AA6ED47A3F1E6FA4BEC5756 /* libPods-govTechTest-govTechTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D2B5819572484220DFA7839 /* libPods-govTechTest-govTechTestTests.a */; };
 		7C253F235C6A48EC90C9C9C6 /* ic_camera.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6FDF2482ACA44E3B94D5A219 /* ic_camera.svg */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		D1E61C2B0FC99D473B5AB542 /* libPods-govTechTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E6668F40BAAFB2A6506305 /* libPods-govTechTest.a */; };
 		E0D6A3EAD8EB4DB4B35805F9 /* graphic_success_check.svg in Resources */ = {isa = PBXBuildFile; fileRef = 40BBF465ADE84ED7BD24D443 /* graphic_success_check.svg */; };
 		F422FFC64DD3461A94E01F2B /* ic_sort.svg in Resources */ = {isa = PBXBuildFile; fileRef = F0DBECAA9D614858B219BF71 /* ic_sort.svg */; };
 /* End PBXBuildFile section */
@@ -41,9 +39,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = govTechTest/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = govTechTest/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = govTechTest/main.m; sourceTree = "<group>"; };
-		189D188DFCACE3914C733464 /* Pods-govTechTest-govTechTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-govTechTest-govTechTestTests.debug.xcconfig"; path = "Target Support Files/Pods-govTechTest-govTechTestTests/Pods-govTechTest-govTechTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		19D364E620D9406984640690 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
-		1D2B5819572484220DFA7839 /* libPods-govTechTest-govTechTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-govTechTest-govTechTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F22420C0AB546F7B0BB621E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		27186B63F7A2440186C1DAE0 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		2FB010C466B3425FA1CDABC8 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
@@ -51,14 +47,10 @@
 		37C67EB76DCA4E74A9964507 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		40BBF465ADE84ED7BD24D443 /* graphic_success_check.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = graphic_success_check.svg; path = ../src/assets/svgs/graphics/graphic_success_check.svg; sourceTree = "<group>"; };
 		4C620662170B4206896916BD /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		64B0DDF000F0C7AAEE2B6E8F /* Pods-govTechTest-govTechTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-govTechTest-govTechTestTests.release.xcconfig"; path = "Target Support Files/Pods-govTechTest-govTechTestTests/Pods-govTechTest-govTechTestTests.release.xcconfig"; sourceTree = "<group>"; };
-		68454D4E8DDA983601803669 /* Pods-govTechTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-govTechTest.debug.xcconfig"; path = "Target Support Files/Pods-govTechTest/Pods-govTechTest.debug.xcconfig"; sourceTree = "<group>"; };
 		69DDE2C64E4247B9BDB7A60C /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
-		6B377A6CA1BA8B4B4F59058B /* Pods-govTechTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-govTechTest.release.xcconfig"; path = "Target Support Files/Pods-govTechTest/Pods-govTechTest.release.xcconfig"; sourceTree = "<group>"; };
 		6FDF2482ACA44E3B94D5A219 /* ic_camera.svg */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = ic_camera.svg; path = ../src/assets/svgs/basics/ic_camera.svg; sourceTree = "<group>"; };
 		771D72AAE0D942CE832EF5DF /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = govTechTest/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		91E6668F40BAAFB2A6506305 /* libPods-govTechTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-govTechTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95D22F7CD2444B0F94EE547F /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		A09DF80345514867A3655268 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		ABFD3945B8924938958BEEFB /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
@@ -77,7 +69,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AA6ED47A3F1E6FA4BEC5756 /* libPods-govTechTest-govTechTestTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1E61C2B0FC99D473B5AB542 /* libPods-govTechTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,8 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				91E6668F40BAAFB2A6506305 /* libPods-govTechTest.a */,
-				1D2B5819572484220DFA7839 /* libPods-govTechTest-govTechTestTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -195,10 +183,6 @@
 		92B1760BFCC15D17687B7E3A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				68454D4E8DDA983601803669 /* Pods-govTechTest.debug.xcconfig */,
-				6B377A6CA1BA8B4B4F59058B /* Pods-govTechTest.release.xcconfig */,
-				189D188DFCACE3914C733464 /* Pods-govTechTest-govTechTestTests.debug.xcconfig */,
-				64B0DDF000F0C7AAEE2B6E8F /* Pods-govTechTest-govTechTestTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -210,12 +194,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "govTechTestTests" */;
 			buildPhases = (
-				365BF15670CA645E119B5B63 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				951511922D3FBA0CE0AC16B0 /* [CP] Embed Pods Frameworks */,
-				46AF48A987F4B746FC14709F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -231,14 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "govTechTest" */;
 			buildPhases = (
-				26806DC1A8F9A5F62DD9A16A /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				63017C7A07E66344FFD48351 /* [CP] Embed Pods Frameworks */,
-				2993407A9145F94A43249212 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -324,118 +302,6 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		26806DC1A8F9A5F62DD9A16A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-govTechTest-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2993407A9145F94A43249212 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-govTechTest/Pods-govTechTest-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-govTechTest/Pods-govTechTest-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-govTechTest/Pods-govTechTest-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		365BF15670CA645E119B5B63 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-govTechTest-govTechTestTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		46AF48A987F4B746FC14709F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-govTechTest-govTechTestTests/Pods-govTechTest-govTechTestTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-govTechTest-govTechTestTests/Pods-govTechTest-govTechTestTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-govTechTest-govTechTestTests/Pods-govTechTest-govTechTestTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		63017C7A07E66344FFD48351 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-govTechTest/Pods-govTechTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-govTechTest/Pods-govTechTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-govTechTest/Pods-govTechTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		951511922D3FBA0CE0AC16B0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-govTechTest-govTechTestTests/Pods-govTechTest-govTechTestTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-govTechTest-govTechTestTests/Pods-govTechTest-govTechTestTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-govTechTest-govTechTestTests/Pods-govTechTest-govTechTestTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -488,7 +354,6 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 189D188DFCACE3914C733464 /* Pods-govTechTest-govTechTestTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -515,7 +380,6 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64B0DDF000F0C7AAEE2B6E8F /* Pods-govTechTest-govTechTestTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -539,7 +403,6 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 68454D4E8DDA983601803669 /* Pods-govTechTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -568,7 +431,6 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B377A6CA1BA8B4B4F59058B /* Pods-govTechTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
